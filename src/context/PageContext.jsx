@@ -11,7 +11,7 @@ const PageContextProvider = (props) => {
     const currency = "₹"
 
     //const backendUrl = import.meta.env.VITE_BACKEND_URL
-    const backendUrl = "https://image-system-backend.onrender.com"
+    const backendUrl = "https://image-system-backend-lilac.vercel.app/"
     
 
     const navigate = useNavigate();
