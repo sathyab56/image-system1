@@ -15,30 +15,27 @@ const Login = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    console.log("🔹 Sending branchName:", branchName); // Debugging log
-    console.log("🔹 Sending password:", password);
-
     try {
-        const response = await axios.post(backendUrl + "/api/bankAcc/login", {
-            branchName,
-            password
-        });
-        console.log("🔹 Server response:", response.data); // Log the full response
+      const response = await axios.post(backendUrl + "/api/bankAcc/login", {
+        branchName,
+        password
+      })
+      if (response.data.success) {
+        await setLogin(response.data.success)
+        await setBranchInfo(response.data.branchInfo)
 
-        if (response.data.success) {
-            setLogin(response.data.success);
-            setBranchInfo(response.data.branchInfo);
-            localStorage.setItem('login', response.data.success);
-            localStorage.setItem('branchName', branchName);
-        } else {
-            toast.error(response.data.message);
-            console.log("❌ Login failed:", response.data.message);
-        }
+        localStorage.setItem('login', response.data.success)
+        localStorage.setItem('branchName', branchName)
+      }
+      else {
+        toast.error(response.data.message)
+        console.log(response.data.message)
+      }
     } catch (error) {
-        console.error("❌ Axios error:", error);
-        toast.error(error.message);
+      console.log(error)
+      toast.error(error.message)
     }
-};
+  }
 
   useEffect(() => {
     if (login) {
