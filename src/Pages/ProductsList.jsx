@@ -38,7 +38,8 @@ const Products = () => {
   };
 
   const [images, setImages] = useState({});
-  const backendUrl = import.meta.env.VITE_BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  
   const branchName = localStorage.getItem("branchName");
 
   const seals = [<Seal1 branchName={branchName} />, <Seal2 branchName={branchName} />, <Seal3 branchName={branchName} />, <Seal4 branchName={branchName} />,

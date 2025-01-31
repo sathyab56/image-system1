@@ -57,7 +57,7 @@ const Login = () => {
         <form onSubmit={e => onSubmitHandler(e)} className="flex flex-col w-[50%] border-2 border-slate-900 px-8 py-16 rounded-lg">
           <input className="border-slate-950 border-2 rounded-xl mb-4 px-3 py-1" value={branchName} onChange={e => setBranchName(e.target.value)} type="text" name="branchName" placeholder="BRANCH NAME" required />
           <input className="border-slate-950 border-2 rounded-xl px-3 py-1" value={password} onChange={e => setPassword(e.target.value)} type="password" name="password" placeholder="PASSWORD" required />
-          <button onClick = {e => onSubmitHandler(e)} className="mt-4 border-slate-950 border-2 w-fit self-center py-2 px-6 text-white bg-black flex items-center justify-between">
+          <button type="submit" className="mt-4 border-slate-950 border-2 w-fit self-center py-2 px-6 text-white bg-black flex items-center justify-between">
             LOG IN
             <IoLogInOutline className="text-2xl ml-1" />
           </button>
@@ -66,5 +66,8 @@ const Login = () => {
     </div>
   );
 };
+
+console.log("Backend URL:", backendUrl);
+
 
 export default Login;
